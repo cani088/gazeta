@@ -1,0 +1,21 @@
+<p>
+ User-componen content
+</p>
+<input type="number" name='not' id='not' #not>
+<button (click)='getTrends(not.value)'>Get Trends</button>
+<p>Trends:</p>
+
+{{hasElements}}
+<div id="posts">
+  <ul>
+    <ng-template #noElements>No elements</ng-template>
+    <div *ngIf='hasElements>0; else noElements'>
+      <div class="post" *ngFor='let trend of trends; let i=index '>
+        <li *ngIf='trend.post_body!=""'>
+            {{i+"- "+trend.post_body}}
+        </li>
+      </div>
+    </div>
+  </ul>
+</div>
+
